@@ -1,0 +1,12 @@
+
+To build:
+cd projects/savvato-careergoal-component/ && npm version patch && cd - && ng build savvato-careergoal-component && cd dist/savvato-careergoal-component/ && npm pack && cd - && date
+
+To create an NPM release:
+    cd projects/savvato-careergoal-component/ && npm version patch && cd - && rm dist/ -rf && ng build savvato-careergoal-component && cd dist/savvato-careergoal-component/ && npm publish --access public && cd - && date
+
+To install in a client project:
+    npm remove @savvato-software/savvato-careergoal-component
+    npm install ../savvato-careergoal-component/dist/savvato-careergoal-component/savvato-software-savvato-careergoal-component-0.0.?.tgz
+
+

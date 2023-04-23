@@ -1,0 +1,72 @@
+<ion-content>
+	<ion-card>
+		<ion-card-header>
+			<ion-card-title>Name: {{getCareerGoalName()}}</ion-card-title>
+			<!-- <ion-button class="" (click)="onEditCareerGoalBtnClick()">Edit</ion-button> -->
+			<ion-item>
+				<ion-label>Collapse To Level</ion-label>
+				<ion-select [placeholder]="getSelectedCollapseToLevelText()" slot="start" interface="popover" [(ngModel)]="selectedCollapseToLevel" [value]="getSelectedCollapseToLevel()">
+					<ion-select-option value="1">Career Goal</ion-select-option>
+					<ion-select-option value="2">Path</ion-select-option>
+					<ion-select-option value="3">Milestone</ion-select-option>
+					<ion-select-option value="4">Labour</ion-select-option>
+					<ion-select-option value="5">Full Detail</ion-select-option>
+				</ion-select>
+			</ion-item>
+			<ion-item *ngIf="!hideAnswerQualityFilters">
+				<ion-radio-group [value]="getSelectedAnswerQualityFilter()" (ionChange)="onAnswerQualityFilterChange($event)">
+					<ion-grid>
+						<ion-row>
+							<ion-col>
+								<ion-item lines="none">
+									<ion-label class="aqfLabel">Incorrectly</ion-label>
+									<ion-radio slot="start" value="incorrect" ></ion-radio>
+								</ion-item>
+							</ion-col>
+							<ion-col>
+								<ion-item lines="none">
+									<ion-label class="aqfLabel">Correctly</ion-label>
+									<ion-radio slot="start" value="correct" ></ion-radio>
+								</ion-item>
+							</ion-col>
+							<ion-col>
+								<ion-item lines="none">
+									<ion-label class="aqfLabel">Either</ion-label>
+									<ion-radio slot="start" value="asked" ></ion-radio>
+								</ion-item>
+								</ion-col>
+							<ion-col>
+								<ion-item lines="none">
+									<ion-label class="aqfLabel">None</ion-label>
+									<ion-radio slot="start" value="noFilter" ></ion-radio>
+								</ion-item>
+								</ion-col>
+							</ion-row>
+						</ion-grid>
+				</ion-radio-group>
+			</ion-item>
+		</ion-card-header>
+
+	<ion-card-content class="orangeBackground" *ngFor="let cg of getCareerGoal()">
+		<span class="pathName">{{getCareerGoalName()}}</span>
+		<div *ngIf="getCareerGoalPaths(cg).length === 0"><br/><br/>None of the questions you've been asked are a match for this path, and this filter.<br/><br/></div>
+		<ion-card-content class="purpleBackground" *ngFor="let path of getCareerGoalPaths(cg)">
+			<span class="pathName" (click)="onPathNameClick(path)">{{path['name']}}</span><br/>
+			<ion-card-content class="greenBackground" *ngFor="let milestone of getMilestonesFromPath(path)">
+				<span class="milestoneName" (click)="onMilestoneNameClick(milestone)">{{milestone['name']}}</span><br/>
+				<ion-card-content class="yellowBackground" *ngFor="let labour of getLaboursFromMilestone(milestone)">
+					<ion-card-content class="blueBackground">
+						<span class="labourName" (click)="onLabourNameClick(labour)">{{labour['name']}}</span><br/>
+						<span class="questionText" *ngFor="let q of getQuestionsFromLabour(labour)" (click)="onQuestionClicked(q)">
+							{{ q.text }}<br/>
+							{{ q.description }}<br/>
+							<br/><br/>
+						</span>
+					</ion-card-content>
+				</ion-card-content>
+			</ion-card-content>
+		</ion-card-content>
+	</ion-card-content>
+</ion-card>
+
+</ion-content>
