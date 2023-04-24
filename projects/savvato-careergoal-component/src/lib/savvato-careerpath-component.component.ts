@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { CareerGoalService } from '@savvato-software/savvato-skills-matrix-services'
 import { FunctionPromiseService } from '@savvato-software/savvato-javascript-services'
 import { ModelService } from './_services/model.service'
 
@@ -32,8 +31,7 @@ export class SavvatoCareerpathComponentComponent implements OnInit {
   constructor(private _router: Router,
     private _route: ActivatedRoute,
     private _modelService: ModelService,
-    private _functionPromiseService: FunctionPromiseService,
-    private _careerGoalService: CareerGoalService) {
+    private _functionPromiseService: FunctionPromiseService) {
 
   }
 
