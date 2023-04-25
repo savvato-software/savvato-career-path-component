@@ -15,7 +15,7 @@ export class SavvatoCareerpathComponentComponent implements OnInit {
 
   answerQualityFilter = undefined;
   hideAnswerQualityFilters = false;
-  getCareerGoalProviderFunction = () => { return undefined };
+  careerGoalProviderFunction = () => { return undefined };
   careerGoal = undefined;
   careerGoalId = undefined;
   user = undefined;
@@ -47,7 +47,7 @@ export class SavvatoCareerpathComponentComponent implements OnInit {
       self.environment = ctrl.getEnv();
       self._modelService._init(ctrl.getEnv());
 
-      self.getCareerGoalProviderFunction = ctrl.getCareerGoalProviderFunction;
+      self.careerGoalProviderFunction = ctrl.careerGoalProviderFunction;
       self.onPathNameClickFunc = ctrl.onPathNameClick;
       self.onMilestoneNameClickFunc = ctrl.onMilestoneNameClick;
       self.onLabourNameClickFunc = ctrl.onLabourNameClick;
@@ -97,8 +97,8 @@ export class SavvatoCareerpathComponentComponent implements OnInit {
   }
 
   getCareerGoalName() {
-    if (this.getCareerGoalProviderFunction) {
-      let cg = this.getCareerGoalProviderFunction();
+    if (this.careerGoalProviderFunction) {
+      let cg = this.careerGoalProviderFunction();
 
       if (cg) {
         return cg['name'];
@@ -182,10 +182,13 @@ export class SavvatoCareerpathComponentComponent implements OnInit {
 
   LEVEL_CAREER_GOAL = 1
   getCareerGoal() {
-    if (this.getCareerGoalProviderFunction && this.myLevelIsShowing(this.LEVEL_CAREER_GOAL)) {
-      let cg = this.getCareerGoalProviderFunction();
+    if (this.careerGoalProviderFunction && this.myLevelIsShowing(this.LEVEL_CAREER_GOAL)) {
+      let cg = this.careerGoalProviderFunction();
+      console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+      console
       return [cg];
     } else {
+      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
       return [ ];
     }
   }

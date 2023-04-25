@@ -2,10 +2,8 @@
 	<ion-card>
 		<ion-card-header>
 			<ion-card-title>Name: {{getCareerGoalName()}}</ion-card-title>
-			<!-- <ion-button class="" (click)="onEditCareerGoalBtnClick()">Edit</ion-button> -->
 			<ion-item>
-				<ion-label>Collapse To Level</ion-label>
-				<ion-select [placeholder]="getSelectedCollapseToLevelText()" slot="start" interface="popover" [(ngModel)]="selectedCollapseToLevel" [value]="getSelectedCollapseToLevel()">
+				<ion-select aria-label="Collapse To Level" [placeholder]="getSelectedCollapseToLevelText()" slot="start" interface="popover" [(ngModel)]="selectedCollapseToLevel" [value]="getSelectedCollapseToLevel()">
 					<ion-select-option value="1">Career Goal</ion-select-option>
 					<ion-select-option value="2">Path</ion-select-option>
 					<ion-select-option value="3">Milestone</ion-select-option>
@@ -19,26 +17,22 @@
 						<ion-row>
 							<ion-col>
 								<ion-item lines="none">
-									<ion-label class="aqfLabel">Incorrectly</ion-label>
-									<ion-radio slot="start" value="incorrect" ></ion-radio>
+									<ion-radio aria-label="Incorrectly" slot="start" value="incorrect" ></ion-radio>
 								</ion-item>
 							</ion-col>
 							<ion-col>
 								<ion-item lines="none">
-									<ion-label class="aqfLabel">Correctly</ion-label>
-									<ion-radio slot="start" value="correct" ></ion-radio>
+									<ion-radio aria-label="Correctly" slot="start" value="correct" ></ion-radio>
 								</ion-item>
 							</ion-col>
 							<ion-col>
 								<ion-item lines="none">
-									<ion-label class="aqfLabel">Either</ion-label>
-									<ion-radio slot="start" value="asked" ></ion-radio>
+									<ion-radio aria-label="Either" slot="start" value="asked" ></ion-radio>
 								</ion-item>
 								</ion-col>
 							<ion-col>
 								<ion-item lines="none">
-									<ion-label class="aqfLabel">None</ion-label>
-									<ion-radio slot="start" value="noFilter" ></ion-radio>
+									<ion-radio aria-label="None" slot="start" value="noFilter" ></ion-radio>
 								</ion-item>
 								</ion-col>
 							</ion-row>

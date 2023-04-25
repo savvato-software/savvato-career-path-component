@@ -3,23 +3,23 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "savvato-careergoal-component": {
+    "savvato-careerpath-component": {
       "projectType": "library",
-      "root": "projects/savvato-careergoal-component",
-      "sourceRoot": "projects/savvato-careergoal-component/src",
+      "root": "projects/savvato-careerpath-component",
+      "sourceRoot": "projects/savvato-careerpath-component/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/savvato-careergoal-component/ng-package.json"
+            "project": "projects/savvato-careerpath-component/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/savvato-careergoal-component/tsconfig.lib.prod.json"
+              "tsConfig": "projects/savvato-careerpath-component/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/savvato-careergoal-component/tsconfig.lib.json"
+              "tsConfig": "projects/savvato-careerpath-component/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,7 +27,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/savvato-careergoal-component/tsconfig.spec.json",
+            "tsConfig": "projects/savvato-careerpath-component/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

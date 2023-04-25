@@ -17,8 +17,8 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
-      "savvato-careergoal-component": [
-        "dist/savvato-careergoal-component"
+      "savvato-careerpath-component": [
+        "dist/savvato-careerpath-component"
       ]
     },
     "target": "ES2022",
